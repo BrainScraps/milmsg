@@ -1,0 +1,33 @@
+<%= form_for(@confirmation) do |f| %>
+  <% if @confirmation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@confirmation.errors.count, "error") %> prohibited this confirmation from being saved:</h2>
+
+      <ul>
+      <% @confirmation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :timestamp %><br />
+    <%= f.datetime_select :timestamp %>
+  </div>
+  <div class="field">
+    <%= f.label :responder_id %><br />
+    <%= f.number_field :responder_id %>
+  </div>
+  <div class="field">
+    <%= f.label :message_id %><br />
+    <%= f.number_field :message_id %>
+  </div>
+  <div class="field">
+    <%= f.label :confirmed %><br />
+    <%= f.check_box :confirmed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Timestamp:</b>
+  <%= @message.timestamp %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @message.author_id %>
+</p>
+
+<p>
+  <b>Target json:</b>
+  <%= @message.target_json %>
+</p>
+
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>

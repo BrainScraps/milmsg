@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Timestamp:</b>
+  <%= @confirmation.timestamp %>
+</p>
+
+<p>
+  <b>Responder:</b>
+  <%= @confirmation.responder_id %>
+</p>
+
+<p>
+  <b>Message:</b>
+  <%= @confirmation.message_id %>
+</p>
+
+<p>
+  <b>Confirmed:</b>
+  <%= @confirmation.confirmed %>
+</p>
+
+
+<%= link_to 'Edit', edit_confirmation_path(@confirmation) %> |
+<%= link_to 'Back', confirmations_path %>

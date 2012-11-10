@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  timestamp: 2012-11-10 14:05:36
+  responder_id: 1
+  message_id: 1
+  confirmed: false
+
+two:
+  timestamp: 2012-11-10 14:05:36
+  responder_id: 1
+  message_id: 1
+  confirmed: false

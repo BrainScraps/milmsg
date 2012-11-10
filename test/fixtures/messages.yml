@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  timestamp: 2012-11-10 14:02:52
+  author_id: 1
+  target_json: MyString
+
+two:
+  timestamp: 2012-11-10 14:02:52
+  author_id: 1
+  target_json: MyString
