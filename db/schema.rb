@@ -11,36 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110220536) do
+ActiveRecord::Schema.define(:version => 20121111101358) do
 
   create_table "confirmations", :force => true do |t|
-    t.datetime "timestamp"
-    t.integer  "responder_id"
-    t.integer  "message_id"
-    t.boolean  "confirmed"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.timestamp "timestamp"
+    t.integer   "responder_id"
+    t.integer   "message_id"
+    t.boolean   "confirmed"
+    t.timestamp "created_at",   :null => false
+    t.timestamp "updated_at",   :null => false
   end
 
   create_table "messages", :force => true do |t|
-    t.datetime "timestamp"
-    t.integer  "author_id"
-    t.string   "target_json"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.timestamp "timestamp"
+    t.integer   "author_id"
+    t.string    "target_json"
+    t.timestamp "created_at",  :null => false
+    t.timestamp "updated_at",  :null => false
   end
 
   create_table "organizations", :force => true do |t|
-    t.string   "name"
-    t.integer  "parent_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "name"
+    t.integer   "parent_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "positions", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "name"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20121110220536) do
     t.integer  "position_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "password"
   end
 
 end

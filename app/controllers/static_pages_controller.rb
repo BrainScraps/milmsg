@@ -5,5 +5,8 @@ class StaticPagesController < ApplicationController
   def help
   end
 
+  def signup
+  	@user = User.new
+  end
 
 end
