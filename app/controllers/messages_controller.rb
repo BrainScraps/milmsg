@@ -40,14 +40,37 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+     
+    @message = current_user.messages.build(params[:message])
+    if @message.save
+      flash[:success] = "Message created!"
+      
+      @account_sid = 'ACdb43c99b5deb7d4ed12083140f41bab3'
+      @auth_token = '11dbb8cbba9b004652469aa77e51183c'
+
+      # set up a client to talk to the Twilio REST API
+      @client = Twilio::REST::Client.new(@account_sid, @auth_token)
+      ha = HashWithIndifferentAccess.new(params[:message])
+      mssg = ha['content']
+
+      @account = @client.account
+      @message = @account.sms.messages.create({:from => '+18319204556', :to => '+14159006499', :body => mssg})
+      puts @message
+      redirect_to root_path
+
+    else
+      @feed_items = []
+      render 'static_pages/home'
+    end
+  
     @message = Message.new(params[:message])
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        
         format.json { render json: @message, status: :created, location: @message }
       else
-        format.html { render action: "new" }
+        
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end

@@ -1,3 +1,17 @@
+<% if signed_in? %>
+  <div class="row-fluid">
+    <%= form_for(@message) do |f| %>
+  <%= render 'shared/error_messages', object: @message %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+      
+    
+  </div>  
+<% else %>
+
 <div class="center jumbotron">
   <h1>Bugl is Calling!</h1>
 
@@ -14,3 +28,4 @@
 	<%= link_to "Forgot Your Username or Password?", "#", class: "btn btn-large btn-primary" %>
 
 	</div>
+	<% end %>
