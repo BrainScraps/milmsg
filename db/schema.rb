@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121111135410) do
+ActiveRecord::Schema.define(:version => 20121111184418) do
 
   create_table "confirmations", :force => true do |t|
     t.timestamp "timestamp"
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(:version => 20121111135410) do
   end
 
   create_table "messages", :force => true do |t|
-    t.timestamp "timestamp"
-    t.integer   "author_id"
-    t.string    "target_json"
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
-    t.string    "content"
+    t.datetime "timestamp"
+    t.integer  "user_id"
+    t.string   "target_json"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "content"
   end
 
   create_table "organizations", :force => true do |t|
