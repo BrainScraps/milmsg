@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121111101358) do
+ActiveRecord::Schema.define(:version => 20121111135410) do
 
   create_table "confirmations", :force => true do |t|
     t.timestamp "timestamp"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20121111101358) do
     t.string    "target_json"
     t.timestamp "created_at",  :null => false
     t.timestamp "updated_at",  :null => false
+    t.string    "content"
   end
 
   create_table "organizations", :force => true do |t|
@@ -49,9 +50,12 @@ ActiveRecord::Schema.define(:version => 20121111101358) do
     t.string   "phone"
     t.integer  "org_id"
     t.integer  "position_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "password"
+    t.string   "remember_token"
   end
+
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
