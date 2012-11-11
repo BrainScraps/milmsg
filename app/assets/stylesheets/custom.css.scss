@@ -23,6 +23,7 @@ html {
 
 body {
   padding-top: 60px;
+  text-align: center;
 }
 
 section {
@@ -53,4 +54,18 @@ textarea {
 
   @include gradient( #718F2C , #B9E365);
 
+}
+#tp_left{
+
+  float:left;
+  margin: 4px;
+
+}
+
+#tp_left img{
+  height: 46px;
+}
+
+textarea {
+  width: auto;
 }
