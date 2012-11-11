@@ -54,7 +54,7 @@ class MessagesController < ApplicationController
       mssg = ha['content']
 
       @account = @client.account
-      @message = @account.sms.messages.create({:from => '+18319204556', :to => '4159006499', :body => mssg})
+      @message = @account.sms.messages.create({:from => '+18319204556', :to => '+14159006499', :body => mssg})
       puts @message
       redirect_to root_path
 
