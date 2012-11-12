@@ -43,7 +43,7 @@ class MessagesController < ApplicationController
      
     @message = current_user.messages.build(params[:message])
     if @message.save
-      flash[:success] = "Message created!"
+      
       
       @account_sid = 'ACdb43c99b5deb7d4ed12083140f41bab3'
       @auth_token = '11dbb8cbba9b004652469aa77e51183c'
@@ -53,10 +53,20 @@ class MessagesController < ApplicationController
       ha = HashWithIndifferentAccess.new(params[:message])
       mssg = ha['content']
 
+      friends = {
+        "+14159006499" => "Jered",
+        "+15107986350" => "Chris",
+        "+16508888377" => "Kathryn"}
+
       @account = @client.account
-      @message = @account.sms.messages.create({:from => '+18319204556', :to => '+18312108280', :body => mssg})
+      @message = @account.sms.messages.create({:to => '+14159006499', :from => '+18319204556', :body => mssg})
       puts @message
-      redirect_to acknowledge_path
+      @message = @account.sms.messages.create({:to => '+15107986350', :from => '+18319204556', :body => mssg})
+      puts @message
+      @message = @account.sms.messages.create({:to => '+16508888377', :from => '+18319204556', :body => mssg})
+      puts @message
+      flash[:success] = "Message created!"
+      redirect_to 'http://www.bugl.co/acknowledge.html'
 
     else
       @feed_items = []

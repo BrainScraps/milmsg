@@ -1,42 +1,66 @@
-<% if signed_in? %>
+
   <div class="row-fluid">
   	<div class = "span10 offset1">
 
   		<div class="row-fluid">
-  			<div class="span12 center">
-  				<button type="button" class="btn btn-warning" data-toggle="button">CPT Crunch (CO) </button>
-  			</div>
+
   			<div class="span6 offset3 center well" id = "me_well">
   				<p style="font-size: 1.2em;">You </p><p>(1SG Gwenevere)</p>
   			</div>
   			<div class="span12 center">
+
+          <p><h3><%=  @last_msg[ :content] %></h3></p>
+
+          <p> Acknowleged?</p>
   				<div class="btn-group" data-toggle="buttons-checkbox">
-				  <button type="button" class="btn btn-success">1PLT-Barnes</button>
-				  <button type="button" class="btn btn-success">2PLT-Elias</button>
-				  <button type="button" class="btn btn-success">3PLT-Dawes</button>
+				  <button type="button" class="btn btn-danger">1PLT-Barnes</button>
+				  <button type="button" class="btn btn-danger">2PLT-Elias</button>
+				  <button type="button" class="btn btn-danger">3PLT-Dawes</button>
 				  
 				</div>
+        <p> Click to RESEND </p>
   			</div>
   			<div class="span12 center" style="margin: 5px;">
-  				Templates: <select id="templatez">
+            <h4> Most Recent Comms</h4>
+           <table class = "table table-striped table-bordered">
+<tr>
+  <td>Formation cancelled </td> <td>
+  10/31/2012</td> <td>
+  <a class="btn-mini btn btn-info"> Details </a> </td>
+</tr>
 
-  					<option value = "f"> Formation </option>
-  					<option value = "r"> Report to my office </option>
+<tr>
+   <td>Sir, you can't say that to the Joes</td> <td>
+  10/31/2012</td> <td>
+  <a class="btn-mini btn btn-info"> Details </a> </td>
+</tr>
 
-  					<option value = "d"> Disregard last comm </option>
-  				</select>
+<tr>
+   <td>Come to my office immediately</td> <td>
+  10/31/2012</td> <td>
+  <a class="btn-mini btn btn-info"> Details </a> </td>
+</tr>
+
+<tr>
+   <td>Weapons cleaning until 1930 - no exceptions </td> <td>
+  10/31/2012</td> <td>
+  <a class="btn-mini btn btn-info"> Details </a> </td>
+</tr>
+
+<tr>
+   <td>Front-leaning rest position NOW.</td> <td>
+  10/31/2012</td> <td>
+  <a class="btn-mini btn btn-info"> Details </a> </td>
+</tr>
+</table>
+  				
   			</div>
 
   		</div>
 
 
 
-    <%= form_for(@message) do |f| %>
-  <%= render 'shared/error_messages', object: @message %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new message...", :cols => "40", :rows => "4", :id => "msgtext" %>
-  </div>
-  <%= f.submit "Send", class: "btn btn-primary" %>
+    
 </div>
 
 <script type="text/javascript">
@@ -52,26 +76,8 @@ $(document).ready( function(){
 
 });
 </script>
-<% end %>
+
       
     
   </div>  
-<% else %>
-
-<div class="center jumbotron">
-  <h1>Bugl is Calling!</h1>
-
-  <h2>
-    You can feel free to put a great tagline here!
-  </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
-
-<div class="center well">
-
-	<%= link_to "Create an Account", "#", class: "btn btn-large btn-primary" %> <br>
-	<%= link_to "Forgot Your Username or Password?", "#", class: "btn btn-large btn-primary" %>
-
-	</div>
-	<% end %>
+	

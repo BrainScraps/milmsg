@@ -10,6 +10,9 @@ class StaticPagesController < ApplicationController
   end
 
   def acknowledge
+    @last_msg = Message.order('id').first
+
+
   end
 
   def signup
