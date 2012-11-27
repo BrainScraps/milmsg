@@ -55,15 +55,11 @@ class MessagesController < ApplicationController
 
       friends = {
         "+14159006499" => "Jered",
-        "+15107986350" => "Chris",
-        "+16508888377" => "Kathryn"}
+        "+11111111111" => "Chris",
+        "+11111111111" => "Kathryn"}
 
       @account = @client.account
       @message = @account.sms.messages.create({:to => '+14159006499', :from => '+18319204556', :body => mssg})
-      puts @message
-      @message = @account.sms.messages.create({:to => '+15107986350', :from => '+18319204556', :body => mssg})
-      puts @message
-      @message = @account.sms.messages.create({:to => '+16508888377', :from => '+18319204556', :body => mssg})
       puts @message
       flash[:success] = "Message created!"
       redirect_to 'http://www.bugl.co/acknowledge.html'
